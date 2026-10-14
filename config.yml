@@ -1,0 +1,51 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/acsed-official-website
+  branch: main
+
+# IMPORTANT: This file requires a real GitHub repository and a supported
+# authentication method before the /admin/ dashboard can sign in.
+# Do not add passwords, OAuth client secrets, or access tokens to this file.
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "news"
+    label: "News & Updates"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publication Date", name: "date", widget: "datetime" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Article", name: "body", widget: "markdown" }
+
+  - name: "events"
+    label: "Events & Activities"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Event Title", name: "title", widget: "string" }
+      - { label: "Event Date", name: "date", widget: "datetime" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Registration Link", name: "registration_link", widget: "string", required: false }
+      - { label: "Event Image or Flyer", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "publications"
+    label: "Publications & Reports"
+    folder: "content/publications"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publication Date", name: "date", widget: "datetime" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Document", name: "document", widget: "file", required: false }
+      - { label: "Content", name: "body", widget: "markdown" }
